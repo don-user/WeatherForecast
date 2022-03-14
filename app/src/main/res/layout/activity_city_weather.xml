@@ -9,10 +9,10 @@
     tools:context=".presentation.cityweatheractivity.CityWeatherActivity">
 
     <TextView
-        android:id="@+id/tv_city"
+        android:id="@+id/tvCity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Москва"
+        android:text="@string/hyphen"
         android:layout_marginTop="10dp"
         android:textColor="@color/white"
         android:textSize="50sp"
@@ -25,12 +25,12 @@
         android:id="@+id/tv_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Облачно"
+        android:text="@string/hyphen"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_city" />
+        app:layout_constraintTop_toBottomOf="@+id/tvCity" />
 
     <ImageView
         android:id="@+id/iViewIcon"
@@ -39,7 +39,7 @@
         android:scaleType="center"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:src="@drawable/ic_cloud"
+        android:src="@drawable/ic_launcher_foreground"
         app:layout_constraintTop_toBottomOf="@+id/tv_description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="-1.1°C"
+        android:text="@string/hyphen"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="50sp"
@@ -70,11 +70,11 @@
         android:id="@+id/tv_humidity_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ВЛАЖНОСТЬ"
+        android:text="@string/humidity"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guideline_middle"/>
 
@@ -82,10 +82,10 @@
         android:id="@+id/tv_humidity_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="52%"
+        android:text="@string/hyphen"
         android:layout_marginEnd="10dp"
         android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_humidity_text"/>
 
@@ -93,11 +93,11 @@
         android:id="@+id/tv_temp_feelsLike_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ОЩУЩАЕТСЯ КАК"
+        android:text="@string/feelsLike"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_humidity_text"/>
 
@@ -105,10 +105,10 @@
         android:id="@+id/tv_temp_feelsLike_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="-1.2°C"
+        android:text="@string/hyphen"
         android:layout_marginEnd="10dp"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_temp_feelsLike_text"/>
 
@@ -117,12 +117,12 @@
         android:id="@+id/tv_windSpeed_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Скорость ветра"
+        android:text="@string/windSpeed"
         android:textAllCaps="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_temp_feelsLike_text"/>
 
@@ -130,10 +130,10 @@
         android:id="@+id/tv_windSpeed_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3.75 м/с"
+        android:text="@string/hyphen"
         android:layout_marginEnd="10dp"
         android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_windSpeed_text"/>
 
@@ -141,12 +141,12 @@
         android:id="@+id/tv_windDeg_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Направление ветра"
+        android:text="@string/windDeg"
         android:textAllCaps="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_windSpeed_text"/>
 
@@ -154,10 +154,10 @@
         android:id="@+id/tv_windDeg_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="345°"
+        android:text="@string/hyphen"
         android:layout_marginEnd="10dp"
         android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_windDeg_text"/>
 
@@ -165,12 +165,12 @@
         android:id="@+id/tv_seaLevel_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Атмосферное давление на уровне моря"
+        android:text="@string/seaLevel"
         android:textAllCaps="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_windDeg_text"/>
 
@@ -178,10 +178,10 @@
         android:id="@+id/tv_seaLevel_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1050 гПа"
+        android:text="@string/hyphen"
         android:layout_marginEnd="10dp"
         android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_seaLevel_text"/>
 
@@ -189,12 +189,12 @@
         android:id="@+id/tv_grndLevel_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Атмосферное давление на уровне земли"
+        android:text="@string/grndLevel"
         android:textAllCaps="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_seaLevel_text"/>
 
@@ -202,10 +202,10 @@
         android:id="@+id/tv_grndLevel_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1050 гПа"
+        android:text="@string/hyphen"
         android:layout_marginEnd="10dp"
         android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_grndLevel_text"/>
 

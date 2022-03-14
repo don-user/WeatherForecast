@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Weather forecast</string>
+    <string name="app_name">WeatherForecast</string>
+    <string name="hyphen">-</string>
+    <string name="humidity">ВЛАЖНОСТЬ</string>
+    <string name="feelsLike">ОЩУЩАЕТСЯ КАК</string>
+    <string name="windSpeed">Скорость ветра</string>
+    <string name="windDeg">Направление ветра</string>
+    <string name="seaLevel">Атмосферное давление на уровне моря</string>
+    <string name="grndLevel">Атмосферное давление на уровне земли</string>
 </resources>
