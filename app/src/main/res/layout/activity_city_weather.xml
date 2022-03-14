@@ -1,9 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/teal_700"
     tools:context=".presentation.cityweatheractivity.CityWeatherActivity">
+
+    <TextView
+        android:id="@+id/tv_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Москва"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Облачно"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_city" />
+
+    <ImageView
+        android:id="@+id/iViewIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/ic_cloud"
+        app:layout_constraintTop_toBottomOf="@+id/tv_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_temp_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="-1.1°C"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iViewIcon"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_humidity_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ВЛАЖНОСТЬ"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_middle"/>
+
+    <TextView
+        android:id="@+id/tv_humidity_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="52%"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_humidity_text"/>
+
+    <TextView
+        android:id="@+id/tv_temp_feelsLike_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ОЩУЩАЕТСЯ КАК"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_humidity_text"/>
+
+    <TextView
+        android:id="@+id/tv_temp_feelsLike_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-1.2°C"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_temp_feelsLike_text"/>
+
+
+    <TextView
+        android:id="@+id/tv_windSpeed_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Скорость ветра"
+        android:textAllCaps="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_temp_feelsLike_text"/>
+
+    <TextView
+        android:id="@+id/tv_windSpeed_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3.75 м/с"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_windSpeed_text"/>
+
+    <TextView
+        android:id="@+id/tv_windDeg_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Направление ветра"
+        android:textAllCaps="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_windSpeed_text"/>
+
+    <TextView
+        android:id="@+id/tv_windDeg_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="345°"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_windDeg_text"/>
+
+    <TextView
+        android:id="@+id/tv_seaLevel_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Атмосферное давление на уровне моря"
+        android:textAllCaps="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_windDeg_text"/>
+
+    <TextView
+        android:id="@+id/tv_seaLevel_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1050 гПа"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_seaLevel_text"/>
+
+    <TextView
+        android:id="@+id/tv_grndLevel_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Атмосферное давление на уровне земли"
+        android:textAllCaps="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_seaLevel_text"/>
+
+    <TextView
+        android:id="@+id/tv_grndLevel_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1050 гПа"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_grndLevel_text"/>
+
+    <ProgressBar
+        android:id="@+id/progressBarLoadingPoster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
