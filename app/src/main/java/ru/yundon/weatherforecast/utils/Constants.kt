@@ -6,7 +6,14 @@ object Constants {
     const val CITY = "q"
     const val CONNECTION_ERROR = "Ошибка соеденение с свервером, проверьте интернет соеденение"
     const val DATABASE_VERSION = 1
-    const val ICON_TEMP = "°C"
+    const val SYMBOL_TEMP = "°C"
+    const val SYMBOL_PERCENT = "%"
+    const val SYMBOL_MS = "м/с"
+    const val SYMBOL_DEGREE = "°"
+    const val SYMBOL_GPA = "гПа"
+    const val SYMBOL_HYPHEN = "-"
+
+    const val EXTRA_NAME = "extra_name"
 
 
 

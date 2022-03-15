@@ -1,11 +1,9 @@
 package ru.yundon.weatherforecast.data.datarepository
 
-import android.util.Log
-import androidx.lifecycle.*
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.transform
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
+import androidx.lifecycle.asLiveData
 import ru.yundon.weatherforecast.data.CityWeatherMapper
-import ru.yundon.weatherforecast.data.database.CitiesWeatherEntity
 import ru.yundon.weatherforecast.domain.CitiesWeatherRepository
 import ru.yundon.weatherforecast.domain.model.CityWeatherItem
 import javax.inject.Inject
@@ -30,10 +28,10 @@ class CitiesWeatherRepositoryImpl @Inject constructor(
         return mapper.mapItemToDomain(cityWeather)
     }
 
-    override suspend fun addCityWeather(cityItem: CityWeatherItem) {
-
-        localStorage.insertCitiesIntoDatabase(mapper.mapItemToData(cityItem))
-    }
+//    override suspend fun addCityWeather(cityItem: CityWeatherItem) {
+//
+//        localStorage.insertCitiesIntoDatabase(mapper.mapItemToData(cityItem))
+//    }
 
     override suspend fun requestCitiesWeather(city: String) {
 

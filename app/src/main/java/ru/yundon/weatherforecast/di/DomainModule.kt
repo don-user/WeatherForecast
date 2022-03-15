@@ -5,7 +5,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import ru.yundon.weatherforecast.domain.CitiesWeatherRepository
-import ru.yundon.weatherforecast.domain.usecases.AddCitiesWeatherUseCase
 import ru.yundon.weatherforecast.domain.usecases.DataRequestCitiesWeatherUseCase
 import ru.yundon.weatherforecast.domain.usecases.GetCitiesWeatherListUseCase
 import ru.yundon.weatherforecast.domain.usecases.GetCityWeatherByNameUseCase
@@ -24,10 +23,10 @@ class DomainModule {
         return GetCityWeatherByNameUseCase(citiesWeatherRepository = repository)
     }
 
-    @Provides
-    fun provideAddCitiesWeatherUseCase(repository: CitiesWeatherRepository): AddCitiesWeatherUseCase {
-        return AddCitiesWeatherUseCase(citiesWeatherRepository = repository)
-    }
+//    @Provides
+//    fun provideAddCitiesWeatherUseCase(repository: CitiesWeatherRepository): AddCitiesWeatherUseCase {
+//        return AddCitiesWeatherUseCase(citiesWeatherRepository = repository)
+//    }
 
     @Provides
     fun provideDataRequestCitiesWeatherUseCase(repository: CitiesWeatherRepository): DataRequestCitiesWeatherUseCase {
