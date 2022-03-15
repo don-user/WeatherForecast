@@ -47,7 +47,6 @@ class MainActivity: AppCompatActivity() {
         }
 
         viewModel.citiesWeatherList.observe(this) {
-            Log.d("MyTagData", "MAIN_ACTIVITY ИНФО О ПОГОДЕ $it")
             adapterCityWeather.submitList(sortedCityByName(it))
         }
 

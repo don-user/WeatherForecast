@@ -1,7 +1,6 @@
 package ru.yundon.weatherforecast.domain
 
 import androidx.lifecycle.LiveData
-import kotlinx.coroutines.flow.Flow
 import ru.yundon.weatherforecast.domain.model.CityWeatherItem
 
 interface CitiesWeatherRepository {
