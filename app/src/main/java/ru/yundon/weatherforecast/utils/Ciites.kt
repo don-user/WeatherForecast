@@ -15,5 +15,10 @@ internal enum class Cities(val city: String) {
     TYUMEN("Тюмень"),
     ARKHANGELSK("Архангельск"),
     VLADIVOSTOK("Владивосток"),
-    IVANOVO("Иваново")
+    IVANOVO("Иваново"),
+    BELGOROD("Белгород"),
+    KHABAROVSK("Хабаровск"),
+    LIPETSK("Липецк"),
+    PSKOV("Псков"),
+    ULYANOVSK("Ульяновск")
 }

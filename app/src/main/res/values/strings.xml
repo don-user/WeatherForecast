@@ -5,6 +5,6 @@
     <string name="feelsLike">ОЩУЩАЕТСЯ КАК</string>
     <string name="windSpeed">Скорость ветра</string>
     <string name="windDeg">Направление ветра</string>
-    <string name="seaLevel">Атмосферное давление на уровне моря</string>
-    <string name="grndLevel">Атмосферное давление на уровне земли</string>
+    <string name="seaLevel">Давление, на уровне моря</string>
+    <string name="grndLevel">Давление, на уровне земли</string>
 </resources>

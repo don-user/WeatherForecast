@@ -4,11 +4,14 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import ru.yundon.weatherforecast.databinding.ActivityCityWeatherBinding
 import ru.yundon.weatherforecast.utils.*
+import ru.yundon.weatherforecast.utils.Constants.ERROR
 import ru.yundon.weatherforecast.utils.Constants.EXTRA_NAME
+import ru.yundon.weatherforecast.utils.Constants.TOOLBAR_TITLE
 
 @AndroidEntryPoint
 class CityWeatherActivity : AppCompatActivity() {
@@ -23,7 +26,15 @@ class CityWeatherActivity : AppCompatActivity() {
 
         getNameIntent()
         getCityWeatherInfo(cityName)
+        setToolbar(TOOLBAR_TITLE)
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) finish()
+        else return super.onOptionsItemSelected(item)
+
+        return true
     }
 
     private fun getNameIntent(){
@@ -34,9 +45,8 @@ class CityWeatherActivity : AppCompatActivity() {
 
     private fun getCityWeatherInfo(city: String?) = with(viewModel){
 
-        if (city != null) {
-            getCityWeatherItemByName(city)
-        }
+        if (city != null) getCityWeatherItemByName(city)
+        else showSnackBar(binding.root, ERROR)
 
         cityWeatherItem.observe(this@CityWeatherActivity){
             binding.apply {
@@ -52,6 +62,14 @@ class CityWeatherActivity : AppCompatActivity() {
                 tvGrndLevelValue.text = it.grndLevel.gpaHelper()
             }
         }
+    }
+
+    private fun setToolbar(title: String){
+        setSupportActionBar(binding.toolbarWeather)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.title = title
+
     }
 
     companion object{

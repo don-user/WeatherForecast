@@ -18,6 +18,8 @@ object Constants {
 
     const val ERROR = "Нет ответа от сервера, или отсутвует интернет соеденение"
 
+    const val TOOLBAR_TITLE = "Вернуться к списку городов"
+
 
 
 
