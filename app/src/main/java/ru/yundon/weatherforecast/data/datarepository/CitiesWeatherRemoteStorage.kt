@@ -8,7 +8,6 @@ class CitiesWeatherRemoteStorage: RemoteDataSource() {
 
     suspend fun getCityWeatherInfo(city: String): CitiesWeatherEntity? {
         val cityWeather = getApiCitiesWeatherResult(city)
-//        Log.d("MyTag", "RemoteStorage запрос в сеть $cityWeather")
         return if (cityWeather != null) objectTransformation(cityWeather)
         else null
     }

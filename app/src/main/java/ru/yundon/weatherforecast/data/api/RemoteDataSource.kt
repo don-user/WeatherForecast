@@ -9,7 +9,6 @@ abstract class RemoteDataSource {
         val response: Response<CitiesWeatherInfo>
         return try {
             response = CitiesWeatherApiClient.apiCitiesWeather.getCitiesWeatherInfo(city)
-//            Log.d("MyTag", "RemoteDatabase запрос в сеть ответ ${response.body()} $city")
             response.body()
 
         } catch (e: Exception) {
