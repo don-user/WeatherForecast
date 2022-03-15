@@ -2,13 +2,16 @@ package ru.yundon.weatherforecast.presentation.mainactivity
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import ru.yundon.weatherforecast.databinding.ActivityMainBinding
 import ru.yundon.weatherforecast.presentation.adapter.CityWeatherAdapter
 import ru.yundon.weatherforecast.presentation.cityweatheractivity.CityWeatherActivity
+import ru.yundon.weatherforecast.utils.Constants.ERROR
 import ru.yundon.weatherforecast.utils.SortedList.sortedCityByName
+import ru.yundon.weatherforecast.utils.showSnackBar
 
 @AndroidEntryPoint
 class MainActivity: AppCompatActivity() {
@@ -25,8 +28,9 @@ class MainActivity: AppCompatActivity() {
 
         viewModel.requestCitiesWeatherInfo()
         setupRecyclerView()
-        observeViewModel()
+        observeCityWeatherList()
         setupClickListener()
+        progressBar()
 
     }
 
@@ -36,17 +40,30 @@ class MainActivity: AppCompatActivity() {
         binding.recyclerViewCity.adapter = adapterCityWeather
     }
 
-    private fun observeViewModel(){
-        viewModel.citiesWeatherList.observe(this) { it ->
+    private fun observeCityWeatherList(){
+
+        viewModel.error.observe(this){
+            if (it) showSnackBar(binding.root, ERROR)
+        }
+
+        viewModel.citiesWeatherList.observe(this) {
             Log.d("MyTagData", "MAIN_ACTIVITY ИНФО О ПОГОДЕ $it")
             adapterCityWeather.submitList(sortedCityByName(it))
         }
+
+
     }
 
     private fun setupClickListener(){
         adapterCityWeather.onCityItemClickListener = {
             val intent = CityWeatherActivity.intentCityWeatherItemByName(this, it.name)
             startActivity(intent)
+        }
+    }
+
+    private fun progressBar(){
+        viewModel.isLoading.observe(this){
+            binding.progressBarLoading.visibility = if(it) View.VISIBLE else View.GONE
         }
     }
 }

@@ -8,10 +8,12 @@ class DataRequestCitiesWeatherUseCase @Inject constructor(
     private val citiesWeatherRepository: CitiesWeatherRepository
     ){
 
-    suspend fun requestCitiesWeather(){
+    suspend fun requestCitiesWeather(): Boolean {
+        var result = true
         for (item in Cities.values()) {
 
-            citiesWeatherRepository.requestCitiesWeather(item.city)
+            if (!citiesWeatherRepository.requestCitiesWeather(item.city)) result = false
         }
+        return result
     }
 }

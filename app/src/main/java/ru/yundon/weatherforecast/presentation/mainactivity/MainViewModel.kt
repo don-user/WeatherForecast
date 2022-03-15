@@ -1,6 +1,8 @@
 package ru.yundon.weatherforecast.presentation.mainactivity
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,6 +18,12 @@ class MainViewModel @Inject constructor(
     private val requestCitiesWeatherUseCase: DataRequestCitiesWeatherUseCase
 ): ViewModel() {
 
+    private val _error = MutableLiveData<Boolean>()
+    val error: LiveData<Boolean> = _error
+
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+
     init {
         Log.d("MyTag", "VM CREATED")
     }
@@ -26,7 +34,10 @@ class MainViewModel @Inject constructor(
 
         viewModelScope.launch(Dispatchers.IO) {
             Log.d("MyTag", "ViewModel - запрос на сайт")
-            requestCitiesWeatherUseCase.requestCitiesWeather()
+            _isLoading.postValue(true)
+            _error.postValue(requestCitiesWeatherUseCase.requestCitiesWeather())
+            _isLoading.postValue(false)
         }
+
     }
 }
