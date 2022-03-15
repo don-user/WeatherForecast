@@ -10,7 +10,8 @@ class DataRequestCitiesWeatherUseCase @Inject constructor(
 
     suspend fun requestCitiesWeather(){
         for (item in Cities.values()) {
-            citiesWeatherRepository.requestCitiesWeather(item.name)
+
+            citiesWeatherRepository.requestCitiesWeather(item.city)
         }
     }
 }
