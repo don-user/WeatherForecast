@@ -1,13 +1,11 @@
 package ru.yundon.weatherforecast.data
 
-import android.util.Log
 import ru.yundon.weatherforecast.data.database.CitiesWeatherEntity
 import ru.yundon.weatherforecast.domain.model.CityWeatherItem
 
 class CityWeatherMapper {
 
     fun mapListToDomain(listCitiesWeather: List<CitiesWeatherEntity>) : List <CityWeatherItem>{
-        Log.d("MyTagData", "mapListToDomain")
         return listCitiesWeather.map {
             mapItemToDomain(it)
         }

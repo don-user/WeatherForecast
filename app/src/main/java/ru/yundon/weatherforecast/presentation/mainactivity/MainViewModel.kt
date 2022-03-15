@@ -24,16 +24,12 @@ class MainViewModel @Inject constructor(
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    init {
-        Log.d("MyTag", "VM CREATED")
-    }
 
     val citiesWeatherList = getCitiesWeatherListUseCase.getCitiesWeatherList()
 
     fun requestCitiesWeatherInfo(){
 
         viewModelScope.launch(Dispatchers.IO) {
-            Log.d("MyTag", "ViewModel - запрос на сайт")
             _isLoading.postValue(true)
             _error.postValue(requestCitiesWeatherUseCase.requestCitiesWeather())
             _isLoading.postValue(false)
