@@ -20,9 +20,6 @@ class CityWeatherViewModel @Inject constructor(
     private val _cityWeatherItem = MutableLiveData<CityWeatherItem>()
     val cityWeatherItem: LiveData<CityWeatherItem> = _cityWeatherItem
 
-    init {
-        Log.d("MyTag", "VM CityWeather CREATED")
-    }
 
     fun getCityWeatherItemByName(city: String){
         viewModelScope.launch(Dispatchers.IO) {

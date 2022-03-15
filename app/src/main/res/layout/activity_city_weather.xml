@@ -224,8 +224,6 @@
 
     </ScrollView>
 
-
-
     <ProgressBar
         android:id="@+id/progressBarLoadingPoster"
         android:layout_width="wrap_content"

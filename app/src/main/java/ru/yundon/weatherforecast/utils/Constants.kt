@@ -15,6 +15,8 @@ object Constants {
 
     const val EXTRA_NAME = "extra_name"
 
+    const val ERROR = "Нет ответа от сервера, или отсутвует интернет соеденение"
+
 
 
 
