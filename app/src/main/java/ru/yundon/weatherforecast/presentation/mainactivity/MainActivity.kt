@@ -49,8 +49,6 @@ class MainActivity: AppCompatActivity() {
         viewModel.citiesWeatherList.observe(this) {
             adapterCityWeather.submitList(sortedCityByName(it))
         }
-
-
     }
 
     private fun setupClickListener(){
