@@ -28,15 +28,9 @@ class CitiesWeatherRepositoryImpl @Inject constructor(
         return mapper.mapItemToDomain(cityWeather)
     }
 
-//    override suspend fun addCityWeather(cityItem: CityWeatherItem) {
-//
-//        localStorage.insertCitiesIntoDatabase(mapper.mapItemToData(cityItem))
-//    }
-
     override suspend fun requestCitiesWeather(city: String): Boolean {
 
         val cityWeatherInfo = removeStorage.getCityWeatherInfo(city)
-//        Log.d("MyTag", "CitiesWeatherRepositoryImpl, запрос погоды город $city ответ $cityWeatherInfo")
         return if (cityWeatherInfo != null) {
             localStorage.insertCitiesIntoDatabase(cityWeatherInfo)
             false

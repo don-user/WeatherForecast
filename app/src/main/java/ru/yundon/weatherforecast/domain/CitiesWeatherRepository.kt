@@ -10,7 +10,5 @@ interface CitiesWeatherRepository {
 
     suspend fun getCitiesWeatherItem(name: String): CityWeatherItem
 
-//    suspend fun addCityWeather(cityItem: CityWeatherItem)
-
     suspend fun requestCitiesWeather(city: String): Boolean
 }

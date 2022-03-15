@@ -23,10 +23,6 @@ class DomainModule {
         return GetCityWeatherByNameUseCase(citiesWeatherRepository = repository)
     }
 
-//    @Provides
-//    fun provideAddCitiesWeatherUseCase(repository: CitiesWeatherRepository): AddCitiesWeatherUseCase {
-//        return AddCitiesWeatherUseCase(citiesWeatherRepository = repository)
-//    }
 
     @Provides
     fun provideDataRequestCitiesWeatherUseCase(repository: CitiesWeatherRepository): DataRequestCitiesWeatherUseCase {
