@@ -6,7 +6,7 @@ import ru.yundon.weatherforecast.R
 
 object ImageLoader {
 
-    fun loadImage(view: ImageView, url: String, placeholder: Int = R.drawable.ic_launcher_foreground){
+    fun loadImage(view: ImageView, url: String?, placeholder: Int = R.drawable.ic_launcher_foreground){
         Picasso.get()
             .load(url)
             .placeholder(placeholder)

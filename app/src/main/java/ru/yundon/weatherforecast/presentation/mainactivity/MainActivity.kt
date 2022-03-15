@@ -1,6 +1,5 @@
 package ru.yundon.weatherforecast.presentation.mainactivity
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
@@ -45,7 +44,7 @@ class MainActivity: AppCompatActivity() {
 
     private fun setupClickListener(){
         adapterCityWeather.onCityItemClickListener = {
-            val intent = Intent(this, CityWeatherActivity::class.java)
+            val intent = CityWeatherActivity.intentCityWeatherItemByName(this, it.name)
             startActivity(intent)
         }
     }

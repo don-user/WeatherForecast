@@ -6,17 +6,13 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import ru.yundon.weatherforecast.domain.usecases.AddCitiesWeatherUseCase
 import ru.yundon.weatherforecast.domain.usecases.DataRequestCitiesWeatherUseCase
 import ru.yundon.weatherforecast.domain.usecases.GetCitiesWeatherListUseCase
-import ru.yundon.weatherforecast.domain.usecases.GetCityWeatherByNameUseCase
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val getCitiesWeatherListUseCase: GetCitiesWeatherListUseCase,
-    private val getCityWeatherByNameUseCase: GetCityWeatherByNameUseCase,
-    private val addCitiesWeatherUseCase: AddCitiesWeatherUseCase,
     private val requestCitiesWeatherUseCase: DataRequestCitiesWeatherUseCase
 ): ViewModel() {
 
