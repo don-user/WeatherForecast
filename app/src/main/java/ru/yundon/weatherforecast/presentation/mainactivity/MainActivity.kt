@@ -8,6 +8,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import ru.yundon.weatherforecast.databinding.ActivityMainBinding
 import ru.yundon.weatherforecast.presentation.adapter.CityWeatherAdapter
 import ru.yundon.weatherforecast.presentation.cityweatheractivity.CityWeatherActivity
+import ru.yundon.weatherforecast.utils.SortedList.sortedCityByName
 
 @AndroidEntryPoint
 class MainActivity: AppCompatActivity() {
@@ -36,9 +37,9 @@ class MainActivity: AppCompatActivity() {
     }
 
     private fun observeViewModel(){
-        viewModel.citiesWeatherList.observe(this) {
+        viewModel.citiesWeatherList.observe(this) { it ->
             Log.d("MyTagData", "MAIN_ACTIVITY ИНФО О ПОГОДЕ $it")
-            adapterCityWeather.submitList(it)
+            adapterCityWeather.submitList(sortedCityByName(it))
         }
     }
 
