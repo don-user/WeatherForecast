@@ -47,6 +47,8 @@ class MainActivity: AppCompatActivity() {
         }
 
         viewModel.citiesWeatherList.observe(this) {
+            if (it.isNullOrEmpty()) binding.tvErrorMsg.visibility = View.VISIBLE
+
             adapterCityWeather.submitList(sortedCityByName(it))
         }
     }
