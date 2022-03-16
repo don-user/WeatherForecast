@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val getCitiesWeatherListUseCase: GetCitiesWeatherListUseCase,
+    getCitiesWeatherListUseCase: GetCitiesWeatherListUseCase,
     private val requestCitiesWeatherUseCase: DataRequestCitiesWeatherUseCase
 ): ViewModel() {
 
@@ -23,10 +23,13 @@ class MainViewModel @Inject constructor(
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
+    init {
+        requestCitiesWeatherInfo()
+    }
 
     val citiesWeatherList = getCitiesWeatherListUseCase.getCitiesWeatherList()
 
-    fun requestCitiesWeatherInfo(){
+    private fun requestCitiesWeatherInfo(){
 
         viewModelScope.launch(Dispatchers.IO) {
             _isLoading.postValue(true)

@@ -24,7 +24,7 @@ class MainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        viewModel.requestCitiesWeatherInfo()
+        //viewModel.requestCitiesWeatherInfo()
         setupRecyclerView()
         observeCityWeatherList()
         setupClickListener()
