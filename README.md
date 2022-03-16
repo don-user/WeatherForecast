@@ -33,7 +33,7 @@ wind.deg - направление ветра.
 - Retrofit
 - Coroutines
 - Room
-- Hilt (Dager)
+- Hilt (Dagger)
 - Picasso
 - Livedata
 - ViewModel
