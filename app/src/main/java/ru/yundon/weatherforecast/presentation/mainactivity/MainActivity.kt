@@ -1,7 +1,6 @@
 package ru.yundon.weatherforecast.presentation.mainactivity
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +9,6 @@ import ru.yundon.weatherforecast.databinding.ActivityMainBinding
 import ru.yundon.weatherforecast.presentation.adapter.CityWeatherAdapter
 import ru.yundon.weatherforecast.presentation.cityweatheractivity.CityWeatherActivity
 import ru.yundon.weatherforecast.utils.Constants.ERROR
-import ru.yundon.weatherforecast.utils.SortedList.sortedCityByName
 import ru.yundon.weatherforecast.utils.showSnackBar
 
 @AndroidEntryPoint
@@ -48,8 +46,10 @@ class MainActivity: AppCompatActivity() {
 
         viewModel.citiesWeatherList.observe(this) {
             if (it.isNullOrEmpty()) binding.tvErrorMsg.visibility = View.VISIBLE
-
-            adapterCityWeather.submitList(sortedCityByName(it))
+            else {
+                adapterCityWeather.submitList(it)
+                binding.tvErrorMsg.visibility = View.GONE
+            }
         }
     }
 
