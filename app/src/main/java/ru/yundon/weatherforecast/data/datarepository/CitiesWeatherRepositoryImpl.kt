@@ -35,8 +35,5 @@ class CitiesWeatherRepositoryImpl @Inject constructor(
             localStorage.insertCitiesIntoDatabase(cityWeatherInfo)
             false
         } else true
-
     }
-
-
 }

@@ -17,7 +17,7 @@ abstract class CitiesWeatherDatabase: RoomDatabase() {
         private var TABLE: CitiesWeatherDatabase? = null
 
         fun buildDatabase(context: Context) : CitiesWeatherDatabase{
-            Log.d("MyTag", "Database создана")
+
             val tempTable = TABLE
             if (tempTable != null) return tempTable
             synchronized(this){

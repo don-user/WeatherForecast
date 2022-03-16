@@ -24,7 +24,6 @@ class DataModule {
         return CitiesWeatherDatabase.buildDatabase(context)
     }
 
-
     @Provides
     @Singleton
     fun provideLocalStorage(database: CitiesWeatherDatabase) : CitiesWeatherLocalStorage{
