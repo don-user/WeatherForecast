@@ -33,8 +33,8 @@ class DataModule {
 
     @Provides
     @Singleton
-    fun provideRemoveStorage() : CitiesWeatherRemoteStorage {
-        return CitiesWeatherRemoteStorage()
+    fun provideRemoveStorage(mapper: CityWeatherMapper) : CitiesWeatherRemoteStorage {
+        return CitiesWeatherRemoteStorage(mapper)
     }
 
     @Provides
