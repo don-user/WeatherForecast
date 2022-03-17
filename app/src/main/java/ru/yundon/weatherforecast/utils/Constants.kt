@@ -20,6 +20,9 @@ object Constants {
 
     const val TOOLBAR_TITLE = "Вернуться к списку городов"
 
+    const val EXCEPTION_MESSAGE_PARAM = "Param screen name is absent"
+    const val EXCEPTION_MESSAGE_BINDING = "Param screen name is absent"
+
 
 
 
