@@ -8,4 +8,6 @@
     <string name="seaLevel">Давление, на уровне моря</string>
     <string name="grndLevel">Давление, на уровне земли</string>
     <string name="error_msg">Нет данных для отображения. Проверьте интернет соеденение.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

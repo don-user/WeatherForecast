@@ -2,14 +2,18 @@ package ru.yundon.weatherforecast.presentation.cityweatheractivity
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
+import ru.yundon.weatherforecast.R
 import ru.yundon.weatherforecast.databinding.ActivityCityWeatherBinding
+import ru.yundon.weatherforecast.presentation.fragment.CityWeatherFragment
 import ru.yundon.weatherforecast.utils.*
 import ru.yundon.weatherforecast.utils.Constants.ERROR
+import ru.yundon.weatherforecast.utils.Constants.EXCEPTION_MESSAGE_PARAM
 import ru.yundon.weatherforecast.utils.Constants.EXTRA_NAME
 import ru.yundon.weatherforecast.utils.Constants.TOOLBAR_TITLE
 
@@ -25,9 +29,13 @@ class CityWeatherActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         getNameIntent()
-        getCityWeatherInfo(cityName)
-        setToolbar(TOOLBAR_TITLE)
+        observeCityWeatherItem()
 
+        if (savedInstanceState == null) {
+            launchFragment(CityWeatherFragment.newInstanceCityByName(cityName))
+            getCityWeatherInfo(cityName)
+        }
+        setToolbar()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -38,37 +46,38 @@ class CityWeatherActivity : AppCompatActivity() {
     }
 
     private fun getNameIntent(){
-        if (!intent.hasExtra(EXTRA_NAME)) throw RuntimeException("Param screen name is absent")
+        if (!intent.hasExtra(EXTRA_NAME)) throw RuntimeException(EXCEPTION_MESSAGE_PARAM)
         cityName = intent.getStringExtra(EXTRA_NAME)
 
     }
 
-    private fun getCityWeatherInfo(city: String?) = with(viewModel){
-
-        if (city != null) getCityWeatherItemByName(city)
+    private fun getCityWeatherInfo(city: String?) {
+        if (city != null) viewModel.getCityWeatherItemByName(city)
         else showSnackBar(binding.root, ERROR)
+    }
 
-        cityWeatherItem.observe(this@CityWeatherActivity){
-            binding.apply {
-                tvCity.text = it.name
-                tvDescription.text = it.description
-                ImageLoader.loadImage(this.iViewIcon, it.icon)
-                tvTempMain.text = it.temp.tempHelper()
-                tvHumidityValue.text = it.humidity.percentHelper()
-                tvTempFeelsLikeValue.text = it.feelsLike.tempHelper()
-                tvWindSpeedValue.text = it.windSpeed.msHelper()
-                tvWindDegValue.text = it.windDeg.degreeHelper()
-                tvSeaLevelValue.text = it.seaLevel.gpaHelper()
-                tvGrndLevelValue.text = it.grndLevel.gpaHelper()
-            }
+    private fun observeCityWeatherItem() = with(binding){
+        viewModel.cityWeatherItem.observe(this@CityWeatherActivity){
+            tvCity.text = it.name
+            tvDescription.text = it.description
+            ImageLoader.loadImage(this.iViewIcon, it.icon)
+            tvTempMain.text = it.temp.tempHelper()
         }
     }
 
-    private fun setToolbar(title: String){
+    private fun launchFragment(fragment: Fragment){
+        supportFragmentManager.popBackStack()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.cityWeatherContainer, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    private fun setToolbar(){
         setSupportActionBar(binding.toolbarWeather)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
-        supportActionBar?.title = title
+        supportActionBar?.title = TOOLBAR_TITLE
 
     }
 
