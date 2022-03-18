@@ -32,6 +32,7 @@
 - Clean архитектуры
 - Патерна MVVM
 - View Binding
+
 а так же библиотек: 
 - Retrofit
 - Coroutines
