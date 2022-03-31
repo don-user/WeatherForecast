@@ -5,11 +5,13 @@ import ru.yundon.weatherforecast.data.api.RemoteDataSource
 import ru.yundon.weatherforecast.data.database.CitiesWeatherEntity
 import javax.inject.Inject
 
-class CitiesWeatherRemoteStorage @Inject constructor(private val mapper: CityWeatherMapper)
-    : RemoteDataSource() {
+class CitiesWeatherRemoteStorage @Inject constructor(
+    private val remoteDataSource: RemoteDataSource,
+    private val mapper: CityWeatherMapper
+    ) {
 
     suspend fun getCityWeatherInfo(city: String): CitiesWeatherEntity? {
-        val cityWeather = getApiCitiesWeatherResult(city)
+        val cityWeather = remoteDataSource.getApiCitiesWeatherResult(city)
         return if (cityWeather != null) mapper.mapJsonToDataModule(cityWeather)
         else null
     }
